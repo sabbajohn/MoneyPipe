@@ -1,10 +1,12 @@
 FROM node:14.17.6
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app/backend
+WORKDIR /usr/src/app/
 
 # Copy all files from the current directory to the working directory
 COPY . .
+
+WORKDIR /usr/src/app/backend
 
 RUN npm install 
 
