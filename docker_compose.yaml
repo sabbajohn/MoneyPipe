@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mp-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+  frontend:
+    container_name: moneypipe-frontend
+    build:
+      context: /frontend
+      dockerfile: dockerfile
+    volumes:
+      -frontend:/usr/src/front
+    ports:
+      -3000:3000
+    networks:
+      - moneypipe
+  
+  backend:
+    container_name: moneypipe-backend
+    build:
+      context: /backend
+      dockerfile: dockerfile
+    env_file:
+      - backend/.env
+    volumes:
+      -frontend:/usr/src/back
+    ports:
+      -3030:3030
+    networks:
+      - moneypipe
+networks:
+  moneypipe:
+
