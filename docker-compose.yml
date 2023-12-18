@@ -12,7 +12,7 @@ services:
   frontend:
     container_name: moneypipe-frontend
     build:
-      context: /frontend
+      context: frontend/
       dockerfile: dockerfile
     volumes:
       - frontend:/usr/src/front
@@ -24,7 +24,7 @@ services:
   backend:
     container_name: moneypipe-backend
     build:
-      context: /backend
+      context: backend/
       dockerfile: dockerfile
     env_file:
       - backend/.env
