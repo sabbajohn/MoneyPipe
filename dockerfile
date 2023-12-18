@@ -8,13 +8,15 @@ COPY . .
 
 WORKDIR /usr/src/app/backend
 
-RUN npm install 
+RUN npm install && npm run build
 
 WORKDIR /usr/src/app/
 
 # Install dependencies
 RUN cd frontend && npm install && npm run build
-RUN cp -r frontend/build/* ../backend/dist/public
+
+WORKDIR /usr/src/app/
+RUN mv -r frontend/build backend/dist/public
 
 
 # Specify the port number the container should expose
