@@ -13,12 +13,12 @@ services:
   backend:
     container_name: moneypipe-backend
     build:
-      context: backend/
+      context: .
       dockerfile: dockerfile
     env_file:
       - backend/.env
     volumes:
-      - ./backend:/usr/src/back
+      - ./:/usr/src/app
     ports:
       - 3030:3030
     networks:
