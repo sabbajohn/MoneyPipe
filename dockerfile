@@ -14,7 +14,7 @@ WORKDIR /usr/src/app/
 
 # Install dependencies
 RUN cd frontend && npm install && npm run build
-RUN cp -rvh frontend/build/* ../backend/dist/public
+RUN cp -r frontend/build/* ../backend/dist/public
 
 
 # Specify the port number the container should expose
