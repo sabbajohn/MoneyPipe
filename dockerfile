@@ -16,7 +16,7 @@ WORKDIR /usr/src/app/
 RUN cd frontend && npm install && npm run build
 
 WORKDIR /usr/src/app/
-RUN mv -r frontend/build backend/dist/public
+RUN mv frontend/build backend/dist/public
 
 
 # Specify the port number the container should expose
