@@ -10,6 +10,8 @@ WORKDIR /usr/src/app/backend
 
 RUN npm install 
 
+WORKDIR /usr/src/app/
+
 # Install dependencies
 RUN cd frontend && npm install && npm run build
 RUN cp -r frontend/build/* backend/dist/public
@@ -18,5 +20,6 @@ RUN cp -r frontend/build/* backend/dist/public
 # Specify the port number the container should expose
 EXPOSE 3030
 
+WORKDIR /usr/src/app/backend
 # Define the command to run your app
 CMD [ "npm", "run", "start" ]
