@@ -1,7 +1,7 @@
 FROM node:14.17.6
 
 # Set the working directory inside the container
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/backend
 
 # Copy all files from the current directory to the working directory
 COPY . .
